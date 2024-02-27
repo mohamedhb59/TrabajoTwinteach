@@ -13,6 +13,14 @@ Create table Cursos (
     Foreign Key (IdTarea) REFERENCES Tareas(IdTarea) 
 )
 
+Create table Cursos_Profesores (
+    IdProfesor INT,
+    IdTarea INT,
+    Primary Key (IdProfesor,IdTarea)
+    Foreign Key (IdProfesor) REFERENCES Profesores(IdProfesor),
+    Foreign Key (IdTarea) REFERENCES Tareas(IdTarea)
+)
+
 Create table Tareas (
     IdTarea INT Primary Key,
     Calificacion INT,
@@ -54,9 +62,39 @@ Create table Register (
     Foreign Key (Contrasena) REFERENCES Profesores(Contrasena),
     Foreign Key (Contrasena) REFERENCES Alumnos(Contrasena)
 )
-/* Las columnas de la tabla inventario se expresan como INT, porque entendemos que cada articulo tiene un codigo de referencia */
+/* Las columnas de la tabla inventario y la tabla softskills se expresan como INT, porque entendemos que cada articulo tiene un codigo de referencia */
 Create table Inventario (
-    IdAlumno INT,
-    Monedas_y_cofres INT
+    IdAlumno INT Primary Key,
+    Monedas_y_cofres INT,
+    Objetos INT,
+    Coleccion_de_chibis INT,
+    Mascotas INT,
+    Foreign Key (IdAlumno) REFERENCES Alumnos(IdAlumno)
+)
 
+Create table Softskills (
+    IdAlumno INT Primary Key,
+    Responsabilidad INT,
+    Cooperacion INT,
+    Autonomia_e_iniciativa INT,
+    Gestion_emocional INT,
+    Habilidad_del_Pensamiento INT,
+    Foreign Key (IdAlumno) REFERENCES Alumnos(IdAlumno)
+)
+
+Create table Mapa (
+    IdAlumno INT Primary Key,
+    Nº_Casilla INT,
+    Recurso_Casilla INT,
+    Foreign Key (IdAlumno) REFERENCES Alumnos(IdAlumno)
+)
+
+Create table Ranking (
+    IdAlumno INT,
+    IdTarea INT,
+    Calificacion INT,
+    Clasificacion INT,
+    Primary Key (IdAlumno,IdTarea),
+    Foreign Key (IdAlumno) REFERENCES Alumnos(IdAlumno),
+    Foreign Key (IdTarea) REFERENCES Tareas(IdTarea)
 )
