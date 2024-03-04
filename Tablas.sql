@@ -59,13 +59,9 @@ Create table Register (
     Contrasena Varchar(20),
     IdAlumno INT,
     IdProfesor INT,
-    Primary Key (Email,Contrasena),
-    Foreign Key (IdProfesor) REFERENCES Profesores(IdProfesor),
-    Foreign Key (IdAlumno) REFERENCES Alumnos(IdAlumno),
-    Foreign Key (Email) REFERENCES Alumnos(Email),
-    Foreign Key (Email) REFERENCES Profesores(Email),
-    Foreign Key (Contrasena) REFERENCES Profesores(Contrasena),
-    Foreign Key (Contrasena) REFERENCES Alumnos(Contrasena)
+    Primary Key (Email, Contrasena),
+    Foreign Key (IdProfesor) REFERENCES Profesores(IdProfesor)
+    Foreign Key (IdAlumno) REFERENCES Alumnos(IdAlumno)
 );
 
 /* Las columnas de la tabla inventario y la tabla softskills se expresan como INT, porque entendemos que cada articulo tiene un codigo de referencia */
@@ -112,29 +108,79 @@ Create table Ranking (
 Create database Twinteach;
 Use Twinteach;
 
-Insert into Profesores (IdProfesor,Email,Contrasena)
-Values ('1','manololama@gmail.com','gkjdfhgkskljd'),
-('2','pepeeldelmadrid@yahoo.es','dfhaskhfew'),
-('3','rodrigoelcuevas@educastur.org','odihqowghfq'),
-('4','federicogarcialorca@hotmail.com','qwooohfeyhfo'),
-('5','sergioelbruxu@gmail.es','aofhqwoifhqeoiw');
+-- Inserts para Tareas
+Insert into Tareas (IdTarea, Calificacion, Recompensas, IdCurso, IdProfesor, IdAlumno)
+Values 
+    (1, 85, 10, 112, 1, 1),
+    (2, 90, 15, 334, 5, 2),
+    (3, 80, 8, 656, 3, 3),
+    (4, 95, 20, 332, 4, 4),
+    (5, 88, 12, 666, 2, 5);
 
-Insert into Cursos (IdCurso,MisCursos,IdProfesor)
-Values ('334','2','5'),
-('112','4','1'),
-('656','3','3'),
-('332','2','4'),
-('666','6','2');
+-- Inserts para Alumnos
+Insert into Alumnos (IdAlumno, Nombre, Email, Contrasena, Avatar, IdCurso)
+Values 
+    (1, 'Pedro', 'pedro@gmail.com', 'pass123', 1, 112),
+    (2, 'María', 'maria@gmail.com', 'pass456', 2, 334),
+    (3, 'Juan', 'juan@gmail.com', 'pass789', 3, 656),
+    (4, 'Ana', 'ana@gmail.com', 'passabc', 4, 332),
+    (5, 'Lucía', 'lucia@gmail.com', 'passdef', 5, 666);
 
-Insert into Cursos_Profesores (IdProfesor,IdCurso)
-Values ('1','656'),
-('2','666'),
-('3','332'),
-('4','112'),
-('5','334');
+-- Inserts para Cursos_Tareas
+Insert into Cursos_Tareas (IdCurso, IdTarea)
+Values 
+    (112, 1),
+    (334, 2),
+    (656, 3),
+    (332, 4),
+    (666, 5);
 
-Insert into Tareas (IdTarea,Calificacion,Recompensas,IdCurso,IdProfesor,IdAlumno)
-Values ('255','')
+-- Inserts para Register
+Insert into Register (Email, Contrasena, IdAlumno, IdProfesor)
+Values 
+    ('pedro@gmail.com', 'pass123', 1, NULL),
+    ('maria@gmail.com', 'pass456', 2, NULL),
+    ('juan@gmail.com', 'pass789', 3, NULL),
+    ('ana@gmail.com', 'passabc', 4, NULL),
+    ('lucia@gmail.com', 'passdef', 5, NULL);
+
+-- Inserts para Inventario
+Insert into Inventario (IdAlumno, Monedas_y_cofres, Objetos, Coleccion_de_chibis, Mascotas)
+Values 
+    (1, 100, 3, 5, 2),
+    (2, 150, 2, 7, 1),
+    (3, 80, 4, 3, 3),
+    (4, 200, 1, 2, 5),
+    (5, 120, 5, 4, 4);
+
+-- Inserts para Softskills
+Insert into Softskills (IdAlumno, Responsabilidad, Cooperacion, Autonomia_e_iniciativa, Gestion_emocional, Habilidad_del_Pensamiento)
+Values 
+    (1, 85, 90, 80, 75, 88),
+    (2, 90, 85, 88, 92, 80),
+    (3, 80, 88, 82, 85, 90),
+    (4, 95, 92, 90, 80, 85),
+    (5, 88, 80, 85, 90, 82);
+
+-- Inserts para Mapa
+Insert into Mapa (IdAlumno, N_Casilla, Recurso_Casilla)
+Values 
+    (1, 10, 2),
+    (2, 15, 3),
+    (3, 8, 1),
+    (4, 20, 4),
+    (5, 12, 2);
+    
+-- Inserts para Ranking
+Insert into Ranking (IdAlumno, IdTarea, Calificacion, Clasificacion)
+Values 
+    (1, 1, 85, 1),
+    (2, 2, 90, 1),
+    (3, 3, 80, 1),
+    (4, 4, 95, 1),
+    (5, 5, 88, 1);
+
+
 /* hay que volver a hacer los insert de la tabla Cursos_Profesores y la de Tareas */
 
 
