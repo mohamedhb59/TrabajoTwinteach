@@ -102,6 +102,24 @@ Create table Ranking (
     Foreign Key (IdTarea) REFERENCES Tareas(IdTarea)
 );
 
+create table Usuario(
+    IdUsuario INT Primary Key,
+    nombreUsuario Varchar(20),
+    Correo Varchar(20),
+    claveCifrada INT(10),
+    Nombre Varchar(10),
+    Apellidos Varchar(100)
+);
+create table Notificaciones(
+    IdNotificacion INT Primary Key,
+    Fecha date,
+    Tipo INT,
+);
+create table Tierras(
+    Posicion Varchar(10) Primary Key,
+    Objeto Varchar (20),
+    Capital Varchar (50)
+);
 
 /* LAS CONSULTAS */
 
