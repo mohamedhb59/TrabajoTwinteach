@@ -1,0 +1,101 @@
+1º consulta 
+crear cuenta (
+nick
+email
+contraseña
+confirmarContraseña
+nombre
+apellidos
+
+2ª consulta
+log in(
+pista: hacer select a la bd sobre email y contraseña
+
+3ª consulta
+cambiar icono perfil(
+
+4ª consulta
+crear cuenta profesor(
+
+5ª consulta
+log in profesor(
+
+6ª consulta
+crear curso como profesor(
+
+7ª consulta
+lista con todos los cursos como profesor
+
+8ª consulta
+el alumno inserta el codigo de la clase del profesor y no le
+sale aún como aceptado
+
+9ª consulta
+aceptar al alumno en la clase como profesor
+pista: al aceptar es un UPDATE
+
+10ª consulta
+listas de los alumnos que hay en el curso
+
+11ª consulta
+lista del profesor
+
+12ª consulta
+que aparezca el alumno aceptado en la clase
+
+13ª consulta
+cinco monedas de oro solo por ser aceptado
+
+14ª consulta
+cofre de madera solo por ser aceptado
+
+15ª consulta
+un huevo comun solo por ser aceptado
+
+16º consulta
+abrir el cofre de madera
+pista: Hacer un update de -1
+
+17ºconsulta
+insert con todos los objetos que tocarian en el cofre de madera
+
+18ºconsulta
+monedas id 1 update en el apartado de monedas
+
+19ºconsulta 
+piedra de fuego id 56 insert 
+
+20ºconsulta
+calabaza id 50 insert
+
+21ºconsulta
+entrar al pueblo hacer un select de id entre 200 y 500 que son los chibis
+
+22ºconsulta
+entrar en las soft skills es un select en la tabla evalua
+
+23ºconsulta
+evaluar a un compañero da dos inserts uno en la tabla de inventario y otro en la tabla evalua y tambien dos update uno a inventario para sumar las piedras de fuego y otro a evalua que resta los puntos de valoracion que usamos
+
+24ºconsulta
+tabla de cuantos alumnos hay para ver los alumnos que puedes dar softskills con un select se coge tambien la id de los alumnos y se recoge el nombre y el avatar que tengan para que en la lista se pueda ver el avatar y el nick que se pusieron
+
+25º
+crear un ranking con la cuenta de profesor insert y un create al crear la tarea tambien hay que crear una tabla que se llama participa en donde estaran las notas
+
+26º
+cambiamos las notas con un update de las notas
+
+27º
+entregamos recompensas que seria un update de la tabla inventario
+
+28º
+hacer una consulta que te enseñe los rankings del curso (siendo alumno)
+
+29º
+para usar el inventario estamos haciendo un select de toda la tabla objetos hay como condicion el id del curso que sea el curso en el que estamos hay como condicion el id del alumno y otra condicion que el numero sea mayor que 0
+
+30º
+los ataques se modifica la cantidad de monedas (se selecionara todos los chibis se compararan el ataque y la defensa si tiene o no edificios tambien la codicia etc etc) y se tiene que hacer un update a las monedas y un insert a la tabla de notificaciones
+31º 
+hacer una tabla con las notificaciones
