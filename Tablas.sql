@@ -204,48 +204,49 @@ Values
 
 /*Consultas*/
 
+/*1º Consulta*/
 SELECT Alumnos.Nombre, Alumnos.Email, Alumnos.Contrasena
 FROM Alumnos
 INNER JOIN Tareas ON Alumnos.IdAlumno = Tareas.IdAlumno
 WHERE Tareas.Calificacion > 8;
-
+/*2º Consulta*/
 SELECT Alumnos.Nombre, COUNT(Tareas.IdTarea) AS Tareas_Completadas
 FROM Alumnos
 LEFT JOIN Tareas ON Alumnos.IdAlumno = Tareas.IdAlumno
 GROUP BY Alumnos.Nombre;
-
+/*3º Consulta */
 SELECT Profesores.Email, Profesores.Contrasena
 FROM Profesores
 LEFT JOIN Tareas ON Profesores.IdProfesor = Tareas.IdProfesor
 WHERE Tareas.IdTarea IS NULL;
-
+/*4º Consulta*/
 SELECT Cursos.IdCurso, AVG(Tareas.Calificacion) AS Promedio_Calificacion
 FROM Cursos 
 INNER JOIN Tareas ON Cursos.IdCurso = TAreas.IdCurso
 GROUP BY Cursos.IdCurso;
-
+/*5º Consulta*/
 SELECT Cursos.IdCurso, AVG(Tareas.Calificacion) AS Promedio_Calificacion
 FROM Cursos
 INNER JOIN Tareas ON Cursos.IdCurso = Tareas.IdCurso
 GROUP BY Cursos.IdCurso;
-
+/*6º Consulta */
 SELECT Tareas.IdTarea, Tareas.Calificacion
 FROM Tareas
 INNER JOIN Alumnos ON Tareas.IdAlumno = Alumnos.IdAlumno
 WHERE Alumnos.Nombre = 'Pedro'; 
-
+/*7º Consulta */
 SELECT Alumnos.Nombre
 FROM Tareas
 LEFT JOIN Alumnos ON Alumnos.IdAlumno = Tareas.IdAlumno
 GROUP BY Alumnos.Nombre
 HAVING OUT (Tareas.IdTarea) = (SELECT COUNT(DISTINCT IdTarea) FROM Tareas);
-
+/*8º Consulta*/
 SELECT Profesores.Nombre AS Nombre.IdProfesor, = Profesores.IdProfesor
 FROM Tareas
 INNER JOIN Profesores ON Tareas.IdProfesor = Profesores.IdProfesor
 INNER JOIN Cursos ON Tareas.IdCurso = Cursos.IdCurso
 WHERE Tareas.Calificacion > 9;
-
+/*9º Consulta */
 SELECT Cursos.IdCurso, COUNT(Alumnos.IdAlumno) AS Numero_Alumnos
 From Cursos
 LEFT JOIN Alumnos ON Cursos.IdCurso = Alumnos.IdCurso
