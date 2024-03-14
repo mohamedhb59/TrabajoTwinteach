@@ -270,5 +270,62 @@ WHERE Cursos.IdCurso = '334';
 SELECT *
 FROM Profesores
 WHERE IdProfesor = '233';
+/*12ª Consulta*/
+SELECT Alumnos.*
+FROM Alumnos
+JOIN Cursos ON Alumnos.IdCurso = Cursos.IdCurso
+WHERE Cursos.IdCurso = '443';
+/*13ª Consulta*/
+UPDATE Inventario
+SET Monedas_y_cofres = Monedas_y_cofres + 5
+WHERE IdAlumno IN (
+    SELECT Alumnos.IdAlumno
+    FROM Alumnos
+    JOIN Cursos ON Alumnos.IdCurso = Cursos.IdCurso
+    WHERE Cursos.IdCurso = '223'
+);
+/*14ª Consulta*/
+UPDATE Inventario
+SET Monedas_y_cofres = Monedas_y_cofres + 1
+WHERE IdAlumno IN (
+    SELECT Alumnos.IdAlumno
+    FROM Alumnos
+    JOIN Cursos ON Alumnos.IdCurso = Cursos.IdCurso
+    WHERE Cursos.IdCurso = '564'
+);
+/*15ª Consulta*/
+INSERT INTO Inventario (IdAlumno, Objetos)
+SELECT Alumnos.IdAlumno, 1
+FROM Alumnos
+JOIN Cursos ON Alumnos.IdCurso = Cursos.IdCurso
+WHERE Cursos.IdCurso = '758';
+/*16ª Consulta*/
+UPDATE Inventario
+SET Monedas_y_cofres = Monedas_y_cofres - 1
+WHERE IdAlumno = '11'
+AND Monedas_y_cofres > 0;
+/*17ª Consulta*/
+INSERT INTO Inventario (IdAlumno, Objetos)
+VALUES
+    ('34', '211'),
+    ('45', '32'),
+    ('89', '11'),
+    ;
+/*18ª Consulta*/
+UPDATE Inventario
+SET Monedas_y_cofres = Monedas_y_cofres + 11
+WHERE IdAlumno = tu_id_de_alumno
+AND Monedas_y_cofres > 0;
+/*19ª Consulta*/
+INSERT INTO Inventario (IdAlumno, Objetos)
+VALUES ('6', 56);
+/*20ª Consulta*/
+INSERT INTO Inventario (IdAlumno, Objetos)
+VALUES ('87', 50);
+/*21ª Consulta*/
+SELECT *
+FROM Coleccion_de_chibis
+WHERE IdChibi BETWEEN 200 AND 500;
+
 
 
