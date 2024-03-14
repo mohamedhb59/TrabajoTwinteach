@@ -326,6 +326,83 @@ VALUES ('87', 50);
 SELECT *
 FROM Coleccion_de_chibis
 WHERE IdChibi BETWEEN 200 AND 500;
+/*22º Consukta*/
+SELECT *
+FROM Softskills;
+
+/*23º Consukta*/
+
+INSERT INTO Inventario (IdAlumno, Piedras_de_fuego)
+VALUES (id_compañero, cantidad_piedras);
+
+INSERT INTO Evalua (IdAlumno, Puntos_valoracion)
+VALUES (id_compañero, puntos_valoracion);
+
+UPDATE Inventario
+SET Piedras_de_fuego = Piedras_de_fuego + cantidad_piedras
+WHERE IdAlumno = id_compañero;
+
+UPDATE Evalua
+SET Puntos_valoracion = Puntos_valoracion - puntos_valoracion
+WHERE IdAlumno = id_compañero;
+
+/*24º Consukta*/
+SELECT Alumnos.IdAlumno, Alumnos.Nombre, Alumnos.Avatar
+FROM Alumnos;
+
+/*25º Consukta*/
+
+CREATE TABLE Participa (
+    IdTarea INT,
+    IdAlumno INT,
+    Nota INT,
+    PRIMARY KEY (IdTarea, IdAlumno),
+    FOREIGN KEY (IdTarea) REFERENCES Tareas(IdTarea),
+    FOREIGN KEY (IdAlumno) REFERENCES Alumnos(IdAlumno)
+);
+
+INSERT INTO Participa (IdTarea, IdAlumno, Nota)
+VALUES (id_tarea, id_alumno, nota);
+
+/*26º Consukta*/
+UPDATE Participa
+SET Nota = nueva_nota
+WHERE IdTarea = id_tarea
+AND IdAlumno = id_alumno;
+
+/*27º Consukta*/
+UPDATE Inventario
+SET Monedas_y_cofres = Monedas_y_cofres + cantidad_recompensas
+WHERE IdAlumno = id_alumno;
+
+/*28º Consukta*/
+SELECT Alumnos.Nombre, Tareas.Calificacion
+FROM Alumnos
+INNER JOIN Tareas ON Alumnos.IdAlumno = Tareas.IdAlumno
+ORDER BY Tareas.Calificacion DESC;
+
+/*29º Consukta*/
+SELECT *
+FROM Objetos
+WHERE IdCurso = id_curso
+AND IdAlumno = id_alumno
+AND Numero > 0;
+
+/*30º Consukta*/
+UPDATE Inventario
+SET Monedas_y_cofres = Monedas_y_cofres - cantidad_monedas
+WHERE IdAlumno = id_alumno;
+
+INSERT INTO Notificaciones (Mensaje, Fecha)
+VALUES ('Has sido atacado. Has perdido ' + cantidad_monedas + ' monedas.', GETDATE());
+
+/*31º Consukta*/
+CREATE TABLE Notificaciones (
+    IdNotificacion INT PRIMARY KEY,
+    Mensaje VARCHAR(255),
+    Fecha DATE
+);
+
 
 
 
