@@ -121,6 +121,16 @@ create table Tierras(
     Capital Varchar (50)
 );
 
+create table Cuenta(
+    Nick Varchar(100),
+    Email Varchar(100),
+    Contraseña Varchar(100),
+    confirmarContraseña Varchar(100),
+    Nombre Varchar(25),
+    Apellidos Varchar(25)
+);
+
+
 /* LAS CONSULTAS */
 
 Create database Twinteach;
