@@ -261,4 +261,14 @@ SELECT Cursos.IdCurso, COUNT(Alumnos.IdAlumno) AS Numero_Alumnos
 From Cursos
 LEFT JOIN Alumnos ON Cursos.IdCurso = Alumnos.IdCurso
 GROUP BY Cursos.IdCurso;
+/*10ª Consulta*/
+SELECT Alumnos.*
+FROM Alumnos
+JOIN Cursos ON Alumnos.IdCurso = Cursos.IdCurso
+WHERE Cursos.IdCurso = '334';
+/*11ª Consulta*/
+SELECT *
+FROM Profesores
+WHERE IdProfesor = '233';
+
 
